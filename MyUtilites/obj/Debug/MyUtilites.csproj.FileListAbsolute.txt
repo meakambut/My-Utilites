@@ -8,3 +8,13 @@ C:\Olya\Programming\C#\MyUtilites\MyUtilites\obj\Debug\MyUtilites.csproj.CoreCom
 C:\Olya\Programming\C#\MyUtilites\MyUtilites\obj\Debug\MyUtilites.exe
 C:\Olya\Programming\C#\MyUtilites\MyUtilites\obj\Debug\MyUtilites.pdb
 C:\Olya\Programming\C#\MyUtilites\MyUtilites\obj\Debug\MyUtilites.MainForm.resources
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\bin\Debug\MyUtilites.exe.config
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\bin\Debug\MyUtilites.exe
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\bin\Debug\MyUtilites.pdb
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\obj\Debug\MyUtilites.csprojResolveAssemblyReference.cache
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\obj\Debug\MyUtilites.MainForm.resources
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\obj\Debug\MyUtilites.Properties.Resources.resources
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\obj\Debug\MyUtilites.csproj.GenerateResource.Cache
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\obj\Debug\MyUtilites.csproj.CoreCompileInputs.cache
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\obj\Debug\MyUtilites.exe
+C:\Olya\Programming\C#\My-Utilites\MyUtilites\obj\Debug\MyUtilites.pdb

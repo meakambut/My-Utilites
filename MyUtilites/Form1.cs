@@ -88,5 +88,50 @@ namespace MyUtilites
             if(!String.IsNullOrEmpty(tbRandom.Text) || !String.IsNullOrWhiteSpace(tbRandom.Text))
                 Clipboard.SetText(tbRandom.Text);
         }
+
+        private void tsmiInsertDate_Click(object sender, EventArgs e)
+        {
+            rtbNotepad.AppendText(DateTime.Now.ToShortDateString()+"\r\n");
+        }
+
+        private void tsmiInsertTime_Click(object sender, EventArgs e)
+        {
+            rtbNotepad.AppendText(DateTime.Now.ToShortTimeString() + "\r\n");
+        }
+
+        private void tsmiAdd_Click(object sender, EventArgs e)
+        {
+            OpenNotepad();
+        }
+
+        void OpenNotepad()
+        {
+            try
+            {
+                rtbNotepad.LoadFile("notepad.rtf");
+            }
+            catch
+            {
+                MessageBox.Show("error saving file\r\n");
+            }
+        
+        }
+
+        private void tsmiSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                rtbNotepad.SaveFile("notepad.rtf");
+            }
+            catch
+            {
+                MessageBox.Show("error saving file\r\n");
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            OpenNotepad();
+        }
     }
 }
