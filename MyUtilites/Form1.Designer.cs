@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TabControl tabControl1;
+            this.Converter = new System.Windows.Forms.TabPage();
+            this.cbMetric = new System.Windows.Forms.ComboBox();
+            this.btnExchange = new System.Windows.Forms.Button();
+            this.tbTo = new System.Windows.Forms.TextBox();
+            this.tbFrom = new System.Windows.Forms.TextBox();
+            this.btnConvert = new System.Windows.Forms.Button();
+            this.cbTo = new System.Windows.Forms.ComboBox();
+            this.cbFrom = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.tbPassword = new System.Windows.Forms.TextBox();
@@ -65,14 +73,9 @@
             this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.cbFrom = new System.Windows.Forms.ComboBox();
-            this.cbTo = new System.Windows.Forms.ComboBox();
-            this.btnConvert = new System.Windows.Forms.Button();
-            this.tbFrom = new System.Windows.Forms.TextBox();
-            this.tbTo = new System.Windows.Forms.TextBox();
             tabControl1 = new System.Windows.Forms.TabControl();
             tabControl1.SuspendLayout();
+            this.Converter.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPasswordLength)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -81,12 +84,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.from)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(this.tabPage5);
+            tabControl1.Controls.Add(this.Converter);
             tabControl1.Controls.Add(this.tabPage4);
             tabControl1.Controls.Add(this.tabPage3);
             tabControl1.Controls.Add(this.tabPage2);
@@ -98,6 +100,110 @@
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new System.Drawing.Size(724, 412);
             tabControl1.TabIndex = 1;
+            // 
+            // Converter
+            // 
+            this.Converter.Controls.Add(this.cbMetric);
+            this.Converter.Controls.Add(this.btnExchange);
+            this.Converter.Controls.Add(this.tbTo);
+            this.Converter.Controls.Add(this.tbFrom);
+            this.Converter.Controls.Add(this.btnConvert);
+            this.Converter.Controls.Add(this.cbTo);
+            this.Converter.Controls.Add(this.cbFrom);
+            this.Converter.Location = new System.Drawing.Point(4, 37);
+            this.Converter.Name = "Converter";
+            this.Converter.Size = new System.Drawing.Size(716, 371);
+            this.Converter.TabIndex = 4;
+            this.Converter.Text = "Converter";
+            this.Converter.UseVisualStyleBackColor = true;
+            // 
+            // cbMetric
+            // 
+            this.cbMetric.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbMetric.FormattingEnabled = true;
+            this.cbMetric.Items.AddRange(new object[] {
+            "length",
+            "weight"});
+            this.cbMetric.Location = new System.Drawing.Point(195, 17);
+            this.cbMetric.Name = "cbMetric";
+            this.cbMetric.Size = new System.Drawing.Size(104, 29);
+            this.cbMetric.TabIndex = 6;
+            this.cbMetric.Text = "length";
+            this.cbMetric.SelectedIndexChanged += new System.EventHandler(this.cbMetric_SelectedIndexChanged);
+            // 
+            // btnExchange
+            // 
+            this.btnExchange.Location = new System.Drawing.Point(195, 71);
+            this.btnExchange.Name = "btnExchange";
+            this.btnExchange.Size = new System.Drawing.Size(104, 34);
+            this.btnExchange.TabIndex = 5;
+            this.btnExchange.Text = "<=>";
+            this.btnExchange.UseVisualStyleBackColor = true;
+            this.btnExchange.Click += new System.EventHandler(this.btnExchange_Click);
+            // 
+            // tbTo
+            // 
+            this.tbTo.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTo.Location = new System.Drawing.Point(326, 143);
+            this.tbTo.Name = "tbTo";
+            this.tbTo.Size = new System.Drawing.Size(100, 29);
+            this.tbTo.TabIndex = 4;
+            this.tbTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbFrom
+            // 
+            this.tbFrom.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbFrom.Location = new System.Drawing.Point(59, 143);
+            this.tbFrom.Name = "tbFrom";
+            this.tbFrom.Size = new System.Drawing.Size(100, 29);
+            this.tbFrom.TabIndex = 3;
+            this.tbFrom.Text = "1";
+            this.tbFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnConvert
+            // 
+            this.btnConvert.Location = new System.Drawing.Point(195, 120);
+            this.btnConvert.Name = "btnConvert";
+            this.btnConvert.Size = new System.Drawing.Size(104, 42);
+            this.btnConvert.TabIndex = 2;
+            this.btnConvert.Text = "Convert";
+            this.btnConvert.UseVisualStyleBackColor = true;
+            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
+            // 
+            // cbTo
+            // 
+            this.cbTo.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbTo.FormattingEnabled = true;
+            this.cbTo.Items.AddRange(new object[] {
+            "mm",
+            "cm",
+            "dm",
+            "m",
+            "km",
+            "mile"});
+            this.cbTo.Location = new System.Drawing.Point(344, 76);
+            this.cbTo.Name = "cbTo";
+            this.cbTo.Size = new System.Drawing.Size(73, 29);
+            this.cbTo.TabIndex = 1;
+            this.cbTo.Text = "mm";
+            // 
+            // cbFrom
+            // 
+            this.cbFrom.DisplayMember = "mm";
+            this.cbFrom.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbFrom.FormattingEnabled = true;
+            this.cbFrom.Items.AddRange(new object[] {
+            "mm",
+            "cm",
+            "dm",
+            "m",
+            "km",
+            "mile"});
+            this.cbFrom.Location = new System.Drawing.Point(68, 74);
+            this.cbFrom.Name = "cbFrom";
+            this.cbFrom.Size = new System.Drawing.Size(82, 29);
+            this.cbFrom.TabIndex = 0;
+            this.cbFrom.Text = "mm";
             // 
             // tabPage4
             // 
@@ -488,85 +594,6 @@
             this.tsmiAbout.Text = "About program";
             this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
             // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.tbTo);
-            this.tabPage5.Controls.Add(this.tbFrom);
-            this.tabPage5.Controls.Add(this.btnConvert);
-            this.tabPage5.Controls.Add(this.cbTo);
-            this.tabPage5.Controls.Add(this.cbFrom);
-            this.tabPage5.Location = new System.Drawing.Point(4, 37);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(716, 371);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Converter";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // cbFrom
-            // 
-            this.cbFrom.DisplayMember = "mm";
-            this.cbFrom.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbFrom.FormattingEnabled = true;
-            this.cbFrom.Items.AddRange(new object[] {
-            "mm",
-            "cm",
-            "dm",
-            "m",
-            "km",
-            "mile"});
-            this.cbFrom.Location = new System.Drawing.Point(68, 74);
-            this.cbFrom.Name = "cbFrom";
-            this.cbFrom.Size = new System.Drawing.Size(82, 29);
-            this.cbFrom.TabIndex = 0;
-            this.cbFrom.Text = "mm";
-            // 
-            // cbTo
-            // 
-            this.cbTo.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cbTo.FormattingEnabled = true;
-            this.cbTo.Items.AddRange(new object[] {
-            "mm",
-            "cm",
-            "dm",
-            "m",
-            "km",
-            "mile"});
-            this.cbTo.Location = new System.Drawing.Point(344, 76);
-            this.cbTo.Name = "cbTo";
-            this.cbTo.Size = new System.Drawing.Size(73, 29);
-            this.cbTo.TabIndex = 1;
-            this.cbTo.Text = "mm";
-            // 
-            // btnConvert
-            // 
-            this.btnConvert.Location = new System.Drawing.Point(202, 70);
-            this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(104, 42);
-            this.btnConvert.TabIndex = 2;
-            this.btnConvert.Text = "Convert";
-            this.btnConvert.UseVisualStyleBackColor = true;
-            this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
-            // 
-            // tbFrom
-            // 
-            this.tbFrom.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbFrom.Location = new System.Drawing.Point(59, 143);
-            this.tbFrom.Name = "tbFrom";
-            this.tbFrom.Size = new System.Drawing.Size(100, 29);
-            this.tbFrom.TabIndex = 3;
-            this.tbFrom.Text = "1";
-            this.tbFrom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // tbTo
-            // 
-            this.tbTo.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTo.Location = new System.Drawing.Point(326, 143);
-            this.tbTo.Name = "tbTo";
-            this.tbTo.Size = new System.Drawing.Size(100, 29);
-            this.tbTo.TabIndex = 4;
-            this.tbTo.Text = "1";
-            this.tbTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 17F);
@@ -581,6 +608,8 @@
             this.Text = "My Utilites";
             this.Load += new System.EventHandler(this.MainForm_Load);
             tabControl1.ResumeLayout(false);
+            this.Converter.ResumeLayout(false);
+            this.Converter.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPasswordLength)).EndInit();
@@ -593,8 +622,6 @@
             this.tabPage1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -638,12 +665,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckedListBox clbPasswordSettings;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage Converter;
         private System.Windows.Forms.TextBox tbTo;
         private System.Windows.Forms.TextBox tbFrom;
         private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.ComboBox cbTo;
         private System.Windows.Forms.ComboBox cbFrom;
+        private System.Windows.Forms.Button btnExchange;
+        private System.Windows.Forms.ComboBox cbMetric;
     }
 }
 

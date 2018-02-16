@@ -14,7 +14,12 @@ namespace MyUtilites
     {
         int count = 0;
         Random rand;
-        Dictionary<string, double> metrica;
+        Dictionary<string, double> metricaLength;
+        Dictionary<string, double> metricaWeight;
+        Dictionary<string, double> metricaCurrent;
+
+        string [] unitsLength = new string[] {"mm","cm","dm","m","km","mile"};
+        string [] unitsWeight = new string[] { "g", "kg", "t", "lb","oz" };
 
         char[] SpecialSymbols = new char[] { '%', ')', '?', '#', '$', '^', '&', '~' };
 
@@ -22,13 +27,24 @@ namespace MyUtilites
         {
             InitializeComponent();
             rand = new Random();
-            metrica = new Dictionary<string, double>();
-            metrica.Add("mm", 1);
-            metrica.Add("cm", 10);
-            metrica.Add("dm", 100);
-            metrica.Add("m", 1000);
-            metrica.Add("km", 1000000);
-            metrica.Add("mile", 1609344);
+
+            metricaLength = new Dictionary<string, double>();
+            metricaLength.Add("mm", 1);
+            metricaLength.Add("cm", 10);
+            metricaLength.Add("dm", 100);
+            metricaLength.Add("m", 1000);
+            metricaLength.Add("km", 1000000);
+            metricaLength.Add("mile", 1609344);
+
+            metricaWeight = new Dictionary<string, double>();
+            metricaWeight.Add("g", 1);
+            metricaWeight.Add("kg", 1000);
+            metricaWeight.Add("t", 1000000);
+            metricaWeight.Add("lb", 453.6);
+            metricaWeight.Add("oz", 28.3);
+
+            cbMetric.Text = "length";
+            metricaCurrent = metricaLength;
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)
@@ -195,9 +211,49 @@ namespace MyUtilites
 
         private void btnConvert_Click(object sender, EventArgs e)
         {
-            double m1 = metrica[cbFrom.Text];
-            double m2 = metrica[cbTo.Text];
+            double m1 = metricaCurrent[cbFrom.Text];
+            double m2 = metricaCurrent[cbTo.Text];
             tbTo.Text = Convert.ToString(Convert.ToDouble(tbFrom.Text) * m1 / m2);
+        }
+
+        private void btnExchange_Click(object sender, EventArgs e)
+        {
+            string tmp;
+            tmp = cbFrom.Text;
+            cbFrom.Text = cbTo.Text;
+            cbTo.Text = tmp;
+        }
+
+        private void cbMetric_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbMetric.Text)
+            {
+                case "length":
+                    {
+                        metricaCurrent = metricaLength;
+
+                        cbFrom.Items.Clear();
+                        cbFrom.Items.AddRange(unitsLength);
+                        cbFrom.Text = "mm";
+
+                        cbTo.Items.Clear();
+                        cbTo.Items.AddRange(unitsLength);
+                        cbTo.Text = "mm";
+                        break;
+                    }
+                case "weight":
+                    {
+                        metricaCurrent = metricaWeight;
+                        cbFrom.Items.Clear();
+                        cbFrom.Items.AddRange(unitsWeight);
+                        cbFrom.Text = "g";
+
+                        cbTo.Items.Clear();
+                        cbTo.Items.AddRange(unitsWeight);
+                        cbTo.Text = "g";
+                        break;
+                    }
+            }
         }
     }
 }
