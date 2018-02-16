@@ -149,17 +149,17 @@ namespace MyUtilites
                 {
                     case "Digits":
                         {
-                            password += Convert.ToString(rand.Next(0, 9));
+                            password += Convert.ToString(rand.Next(0, 10));
                             break;
                         }
                     case "Capital letters":
                         {
-                            password += Convert.ToChar(rand.Next(65, 88));
+                            password += Convert.ToChar(rand.Next(65, 91));
                             break;
                         }
                     case "Small letters": 
                         {
-                            password += Convert.ToChar(rand.Next(97, 122));
+                            password += Convert.ToChar(rand.Next(97, 123));
                             break;
                         }
                     case "Special symbols: %,),?,#,$,^,&,~":
