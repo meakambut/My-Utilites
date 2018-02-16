@@ -14,6 +14,7 @@ namespace MyUtilites
     {
         int count = 0;
         Random rand;
+        Dictionary<string, double> metrica;
 
         char[] SpecialSymbols = new char[] { '%', ')', '?', '#', '$', '^', '&', '~' };
 
@@ -21,6 +22,13 @@ namespace MyUtilites
         {
             InitializeComponent();
             rand = new Random();
+            metrica = new Dictionary<string, double>();
+            metrica.Add("mm", 1);
+            metrica.Add("cm", 10);
+            metrica.Add("dm", 100);
+            metrica.Add("m", 1000);
+            metrica.Add("km", 1000000);
+            metrica.Add("mile", 1609344);
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)
@@ -183,6 +191,13 @@ namespace MyUtilites
         private void clbPasswordSettings_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            double m1 = metrica[cbFrom.Text];
+            double m2 = metrica[cbTo.Text];
+            tbTo.Text = Convert.ToString(Convert.ToDouble(tbFrom.Text) * m1 / m2);
         }
     }
 }
