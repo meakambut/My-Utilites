@@ -15,6 +15,8 @@ namespace MyUtilites
         int count = 0;
         Random rand;
 
+        char[] SpecialSymbols = new char[] { '%', ')', '?', '#', '$', '^', '&', '~' };
+
         public MainForm()
         {
             InitializeComponent();
@@ -132,6 +134,55 @@ namespace MyUtilites
         private void MainForm_Load(object sender, EventArgs e)
         {
             OpenNotepad();
+            clbPasswordSettings.SetItemChecked(2,true);
+        }
+
+        private void btnGeneratePassword_Click(object sender, EventArgs e)
+        {
+            if (clbPasswordSettings.CheckedItems.Count==0) return;
+            string password = "";
+            for (int i=0; i<nudPasswordLength.Value; i++)
+            {
+                int n = rand.Next(0, clbPasswordSettings.CheckedItems.Count);
+                string s = clbPasswordSettings.CheckedItems[n].ToString();
+                switch (s)
+                {
+                    case "Digits":
+                        {
+                            password += Convert.ToString(rand.Next(0, 9));
+                            break;
+                        }
+                    case "Capital letters":
+                        {
+                            password += Convert.ToChar(rand.Next(65, 88));
+                            break;
+                        }
+                    case "Small letters": 
+                        {
+                            password += Convert.ToChar(rand.Next(97, 122));
+                            break;
+                        }
+                    case "Special symbols: %,),?,#,$,^,&,~":
+                        {
+                            password += SpecialSymbols[rand.Next(0, SpecialSymbols.Length)];
+                            break;
+                        }
+
+
+                }
+                tbPassword.Text = password;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbPassword.Text) || !String.IsNullOrWhiteSpace(tbPassword.Text))
+                Clipboard.SetText(tbPassword.Text);
+        }
+
+        private void clbPasswordSettings_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
